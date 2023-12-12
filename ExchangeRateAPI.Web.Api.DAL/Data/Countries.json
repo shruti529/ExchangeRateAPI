@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "Mexico",
+    "CountryCode": "MEX",
+    "CurrencyCode": "MXN",
+    "FlatRate": 0.024,
+    "RateAdjustmentStrategy": "AddFlatRate"
+  },
+  {
+    "Name": "India",
+    "CountryCode": "IND",
+    "CurrencyCode": "INR",
+    "FlatRate": 3.213,
+    "RateAdjustmentStrategy": "AddFlatRate"
+  },
+  {
+    "Name": "Philippines",
+    "CountryCode": "PHL",
+    "CurrencyCode": "PHP",
+    "FlatRate": 2.437,
+    "RateAdjustmentStrategy": "AddFlatRate"
+  },
+  {
+    "Name": "Guatemala",
+    "CountryCode": "GTM",
+    "CurrencyCode": "GTQ",
+    "FlatRate": 0.056,
+    "RateAdjustmentStrategy": "AddFlatRate"
+  }
+]

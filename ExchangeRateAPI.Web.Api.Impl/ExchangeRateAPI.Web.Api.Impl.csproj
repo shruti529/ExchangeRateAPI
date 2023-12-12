@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExchangeRate.Web.Api.Contracts\ExchangeRateAPI.Web.Api.Contracts.csproj" />
+    <ProjectReference Include="..\ExchangeRateAPI.Web.Api.DAL\ExchangeRateAPI.Web.Api.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
