@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace ExchangeRateAPI.Web.Api.Impl
 {
-    public class AddFlatRateStrategy : IRateAdjustmentStrategy
+    public class AddFlatRateStrategy : RateAdjustmentStrategy
     {
-        public T GetAdjustedRate<T>(PartnerRate partnerRate, Country country) where T : IComparable<T>
+        public AddFlatRateStrategy(Country country) : base(country)
+        { }
+
+        public override T GetAdjustedRate<T>(PartnerRate partnerRate)
         {
-            return (T)Convert.ChangeType(Math.Round(Convert.ToDecimal(partnerRate.Rate) + Convert.ToDecimal(country.FlatRate), 2), typeof(T));
+            return (T)Convert.ChangeType(Math.Round(Convert.ToDecimal(partnerRate.Rate) + Convert.ToDecimal(_country.AdjustmentValue), 2), typeof(T));
         }
     }
 }

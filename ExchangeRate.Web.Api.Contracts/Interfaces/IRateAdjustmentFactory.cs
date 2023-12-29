@@ -8,6 +8,6 @@ namespace ExchangeRateAPI.Web.Api.Contracts
 {
     public interface IRateAdjustmentFactory
     {
-        public IRateAdjustmentStrategy CreateRateAdjustmentStrategy(string strategy);
+        public RateAdjustmentStrategy CreateStrategy(Country strategy);
     }
 }

@@ -9,15 +9,11 @@ namespace ExchangeRateAPI.Web.Api.Impl
 {
     public class RateAdjustmentFactory : IRateAdjustmentFactory
     {
-        public IRateAdjustmentStrategy? CreateRateAdjustmentStrategy(string strategy)
+        public RateAdjustmentStrategy? CreateStrategy(Country country)
         {
             try
             {
-                if (string.IsNullOrEmpty(strategy))
-                {
-                    return null;
-                }
-                return (IRateAdjustmentStrategy)Activator.CreateInstance(Type.GetType($"ExchangeRateAPI.Web.Api.Impl.{strategy}Strategy"));
+                return (RateAdjustmentStrategy)Activator.CreateInstance(Type.GetType($"ExchangeRateAPI.Web.Api.Impl.{country.RateAdjustmentStrategy}Strategy"), new object[] {country});
             }
             catch
             {

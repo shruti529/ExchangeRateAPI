@@ -24,15 +24,15 @@ namespace ExchangeRateAPI.Web.Api.Impl
         {
             var ret = new List<ExchangeRate>();
             var partnerRates = _partnersDAL.GetLatestExchangeRates(country);
+            var strategy = _rateadjustmentFactory.CreateStrategy(country);
 
             foreach (var partnerRate in partnerRates)
             {
-                var adjustedRate = country.AdjustedRate<decimal>(partnerRate, _rateadjustmentFactory);
                 var exchangeRate = new ExchangeRate
                 {
                     CurrencyCode = country.CurrencyCode,
                     CountryCode = country.CountryCode,
-                    PangeaRate = adjustedRate,
+                    PangeaRate = strategy.GetAdjustedRate<decimal>(partnerRate),
                     PaymentMethod = partnerRate.PaymentMethod,
                     DeliveryMethod = partnerRate.DeliveryMethod
                 };
